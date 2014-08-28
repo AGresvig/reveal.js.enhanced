@@ -126,7 +126,11 @@ module.exports = function(grunt) {
 					ext: '.html'
 				}]
 			}
-		}
+		},
+
+		'gh-pages': {
+		    src: ['css/**/*.css', 'js/**/*.js', 'lib/**/*', 'plugin/**/*.js', 'index.html']
+		  }
 	});
 
 	// Dependencies
@@ -139,6 +143,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
 	grunt.loadNpmTasks( 'grunt-zip' );
 	grunt.loadNpmTasks( 'grunt-contrib-jade' );
+	grunt.loadNpmTasks('grunt-gh-pages');
 
 	// Default task
 	grunt.registerTask( 'default', [ 'jade', 'jshint', 'cssmin', 'uglify', 'qunit' ] );
