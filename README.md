@@ -1,15 +1,16 @@
 # Reveal.js Enhanced
 
-This is a version of the excellent [reveal.js](http://lab.hakim.se/reveal-js/) presentation framework that I have enhanced with some more functionality, mainly motivated by techinical preferences.
+This is a version of the excellent [reveal.js](http://lab.hakim.se/reveal-js/) presentation framework that I have enhanced with some further functionality, motivated mainly by technical preferences.
 
-## Additions
+## Feature Additions
 
 ### Support for the [Jade templating engine](http://jade-lang.com/)
 Because I find that writing presentations in HTML quickly becomes tiresome. I think writing in the indentation-specific Jade syntax makes for clear and concise slides (most of the time), while still offering all the customizeability of pure raw HTML. 
 
-This is supported through a Grunt-task, `grunt jade` - it parses `index.jade` (a 1:1 copy of the original `index.html`) which includes slide-markup from **`jade/slides.jade`**. This is where you write your slides. The resulting HTML is spit out as `index.html` in the root dir.
+This is supported through a Grunt-task, `grunt jade` - it parses `index.jade` (a 1:1 conversion of the original `index.html`) which includes slide-markup from **`jade/slides.jade`**. This is where you write your slides. The resulting HTML is spit out as `index.html` in the root dir.
 
-Read below for all that the original Reveal framework has to offer, and how to get started.
+
+**Read below for all that the original Reveal framework has to offer, and how to get started.**
 
 ---
 
