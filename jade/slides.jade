@@ -12,14 +12,21 @@ section
     support for CSS 3D transforms to see it in its full glory.
   aside.notes
     | Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-//
-   Example of nested vertical slides 
+
+// Example of nested vertical slides 
 section
   section
     h2 Vertical Slides
-    p: Slides can be nested inside of other slides, try pressing #[a.navigate-down(href='#') down].
-    a.image.navigate-down(href='#')
+    p.fragment: Slides can be nested inside of other slides, try pressing #[a.navigate-down(href='#') down].
+    a.fragment.image.navigate-down(href='#')
       img(width='178', height='238', src='https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png', alt='Down arrow')
+
+    aside.notes(data-markdown)
+      * These are my notes
+      * which are very handy
+      * during a presentation
+      * and in **markdown**!
+
   section
     h2 Basement Level 1
     p Press down or up to navigate.

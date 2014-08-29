@@ -5,9 +5,26 @@ This is a version of the excellent [reveal.js](http://lab.hakim.se/reveal-js/) p
 ## Feature Additions
 
 ### Support for the [Jade templating engine](http://jade-lang.com/)
-Because I find that writing presentations in HTML quickly becomes tiresome. I think writing in the indentation-specific Jade syntax makes for clear and concise slides (most of the time), while still offering all the customizeability of pure raw HTML. 
+Because I find that writing presentations in HTML quickly becomes tiresome. I think writing in the indentation-specific Jade syntax makes for a neat, clear and concise structure to the slides (most of the time), while still offering all the customizeability of pure raw HTML:
 
-This is supported through a Grunt-task, `grunt jade` - it parses `index.jade` (a 1:1 conversion of the original `index.html`) which includes slide-markup from **`jade/slides.jade`**. This is where you write your slides. The resulting HTML is spit out as `index.html` in the root dir.
+```jade
+// Example of nested vertical slides 
+section
+  section
+    h2 Vertical Slides
+    p.fragment: Slides can be nested inside of other slides, try pressing #[a.navigate-down(href='#') down].
+    a.fragment.image.navigate-down(href='#')
+      img(width='178', height='238', src='https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png', alt='Down arrow')
+```
+
+..and super-simple speaker notes:
+
+	aside.notes(data-markdown)
+	  * These are my notes
+	  * which are very handy
+	  * and in **markdown**!
+
+Jade is supported through a Grunt-task, `grunt jade` - it parses `index.jade` (a 1:1 conversion of the original `index.html`) which includes slide-markup from **`jade/slides.jade`**. This is where you write your slides. The resulting HTML is spit out as `index.html` in the root dir.
 
 ### [GitHub Pages](https://pages.github.com/) support
 Push your compiled presentation to the freely hosted GH pages using a simple command. `grunt gh-pages` updates your "gh-pages"-branch with the necessary files (see `[Grunt 'gh-pages' task](Gruntfile.js)) and pushes it to the server. Your presentation will more or less immediately be available at '[your-github-username].github.io/[name-of-this-repo]/'. 
@@ -18,7 +35,7 @@ I tend to include a lot of box-based diagrams etc. in my presentations, usually 
 See `jade/slides.jade` for an example, and view the docs in Gofigure's repo. Use it as you wish but I find that including the gofigure-code in a script-tag on the slide in which it is drawn, and running it on the event triggered when the slide is shown (using the `data-state` attribute of the slide tag) makes sense.
 
 
-**Read below for all that the original Reveal framework has to offer, and how to get started.**
+**Read below for all that the original Reveal.js has to offer, and how to get started.**
 
 ---
 
