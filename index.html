@@ -33,10 +33,10 @@
       <div class="slides">
         <!--Any section element inside of this container is displayed as a slide -->
         <section>
-          <h1>Reveal.js</h1>
-          <h3>HTML Presentations Made Easy</h3>
+          <h1>Reveal.js Enhanced</h1>
+          <h3>Technical HTML Presentations Made Easy</h3>
           <p><small>
-              <Created>by <a href="http://hakim.se">Hakim El Hattab</a>/<a href="http://twitter.com/hakimel">@hakimel</a></Created></small></p>
+              <Created>by <a href="http://hakim.se">Hakim El Hattab</a>/<a href="http://twitter.com/hakimel">@hakimel</a> & <a href="http://blog.akselgresvig.com">Aksel Gresvig</a></Created></small></p>
         </section>
         <section>
           <h2>Heads Up</h2>
@@ -224,9 +224,13 @@
             <li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
           </ul>
         </section>
+        <section data-state="gofigure-demo">
+          <h1>Programmatic drawing!</h1><small>Courtesy of <a href="http://eoftedal.github.io/gofigure/index.html">eoftedal.github.io/gofigure</a></small>
+          <div id="figure"></div>
+        </section>
         <section>
           <h1>THE END</h1>
-          <h3>BY Hakim El Hattab / hakim.se</h3>
+          <h3>BY Hakim El Hattab & Aksel Gresvig</h3>
         </section>
       </div>
     </div>
@@ -255,9 +259,31 @@
           { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
           { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/gofigure/plugin.js', async: true, condition: function() { return true; } }
         ]
       });
+      
+      Reveal.addEventListener( 'gofigure-demo', function( event ) {
+        setTimeout(function() {
+          $('#figure').empty();
+          
+          //Add a drawing area to element with id 'figure', with the given width and height
+          var figure = gofigure.create('figure', '980', '550'); 
+          
+          //Draw a box and animate drawing immediately
+          figure.box(600, 50, 100, 200).animate();
+          
+          //Group two animations together and begin animation immediately
+          figure.arrow(600, 150, 500, 150).centeredText(550, 167, "to").animate();
+          
+          //Create list of animations and bind them to keyboard arrow presses
+          gofigureplugin.addStep('figure', figure.arrow(600, 150, 500, 150).centeredText(550, 167, "to"));
+          gofigureplugin.addStep('figure', figure.box(400, 50, 100, 200, { radius: 0 }).centeredText(450, 270, "Box with small text", {fontsize: 11}));
+          gofigureplugin.addStep('figure', figure.arrow(400, 150, 300, 150, {arrowheads: "end" }).centeredText(350, 167, "single head arrow", {fontsize: 11}));
+          gofigureplugin.addStep('figure', figure.centeredText(250, 270, "Slowly drawn box").box(200, 50, 100, 200, {duration: 5000, radius: 25 }));
+        }, 1000);
+      }, false);
     </script>
   </body>
 </html>

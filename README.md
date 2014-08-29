@@ -12,6 +12,12 @@ This is supported through a Grunt-task, `grunt jade` - it parses `index.jade` (a
 ### [GitHub Pages](https://pages.github.com/) support
 Push your compiled presentation to the freely hosted GH pages using a simple command. `grunt gh-pages` updates your "gh-pages"-branch with the necessary files (see `[Grunt 'gh-pages' task](Gruntfile.js)) and pushes it to the server. Your presentation will more or less immediately be available at '[your-github-username].github.io/[name-of-this-repo]/'. 
 
+### Programmatic drawing with [Gofigure](https://github.com/eoftedal/gofigure)
+I tend to include a lot of box-based diagrams etc. in my presentations, usually to describe tech-stacks or application flow. Visualizing this with animation-based drawings is a real attention-grabber, so I included support for programmatic creation of figures. 
+
+See `jade/slides.jade` for an example, and view the docs in Gofigure's repo.
+
+
 **Read below for all that the original Reveal framework has to offer, and how to get started.**
 
 ---
