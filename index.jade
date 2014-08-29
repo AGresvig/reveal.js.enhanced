@@ -31,16 +31,20 @@ html(lang="en")
 
     //if lt IE 9
       script(src='lib/js/html5shiv.js')
+    
+    script(src='lib/js/head.min.js')
 
   body
     .reveal
       .slides
         include jade/slides
 
-    script(src='lib/js/head.min.js')
-    script(src='js/reveal.min.js')
-
     script.
+      //load libraries
+      head.js(
+        'js/reveal.min.js'
+      );
+      
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
