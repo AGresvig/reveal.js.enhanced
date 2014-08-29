@@ -15,7 +15,7 @@ Push your compiled presentation to the freely hosted GH pages using a simple com
 ### Programmatic drawing with [Gofigure](https://github.com/eoftedal/gofigure)
 I tend to include a lot of box-based diagrams etc. in my presentations, usually to describe tech-stacks or application flow. Visualizing this with animation-based drawings is a real attention-grabber, so I included support for programmatic creation of figures. 
 
-See `jade/slides.jade` for an example, and view the docs in Gofigure's repo.
+See `jade/slides.jade` for an example, and view the docs in Gofigure's repo. Use it as you wish but I find that including the gofigure-code in a script-tag on the slide in which it is drawn, and running it on the event triggered when the slide is shown (using the `data-state` attribute of the slide tag) makes sense.
 
 
 **Read below for all that the original Reveal framework has to offer, and how to get started.**

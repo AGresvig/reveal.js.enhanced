@@ -41,54 +41,34 @@ html(lang="en")
 
     script.
       //load libraries
-      head.js(
-        'js/reveal.min.js'
-      );
-      
-      // Full list of configuration options available here:
-      // https://github.com/hakimel/reveal.js#configuration
-      Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
+      head.js('js/reveal.min.js', function() {
 
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-        // Parallax scrolling
-        //parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-        //parallaxBackgroundSize: '2100px 900px',
+        
+        // Full list of configuration options available here:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+          controls: true,
+          progress: true,
+          history: true,
+          center: true,
 
-        // Optional libraries used to extend on reveal.js
-        dependencies: [
-          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
-          { src: 'plugin/gofigure/plugin.js', async: true, condition: function() { return true; } }
-        ]
+          theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+          transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+          // Parallax scrolling
+          //parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+          //parallaxBackgroundSize: '2100px 900px',
+
+          // Optional libraries used to extend on reveal.js
+          dependencies: [
+            { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+            { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+            { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+            { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+            { src: 'plugin/gofigure/plugin.js', async: true, condition: function() { return true; } }
+          ]
+        });
       });
-    
-      Reveal.addEventListener( 'gofigure-demo', function( event ) {
-        setTimeout(function() {
-          $('#figure').empty();
-          
-          //Add a drawing area to element with id 'figure', with the given width and height
-          var figure = gofigure.create('figure', '980', '550'); 
-
-          //Draw a box and animate drawing immediately
-          figure.box(600, 50, 100, 200).animate();
-
-          //Group two animations together and begin animation immediately
-          figure.arrow(600, 150, 500, 150).centeredText(550, 167, "to").animate();
-
-          //Create list of animations and bind them to keyboard arrow presses
-          gofigureplugin.addStep('figure', figure.arrow(600, 150, 500, 150).centeredText(550, 167, "to"));
-          gofigureplugin.addStep('figure', figure.box(400, 50, 100, 200, { radius: 0 }).centeredText(450, 270, "Box with small text", {fontsize: 11}));
-          gofigureplugin.addStep('figure', figure.arrow(400, 150, 300, 150, {arrowheads: "end" }).centeredText(350, 167, "single head arrow", {fontsize: 11}));
-          gofigureplugin.addStep('figure', figure.centeredText(250, 270, "Slowly drawn box").box(200, 50, 100, 200, {duration: 5000, radius: 25 }));
-        }, 1000);
-      }, false);
