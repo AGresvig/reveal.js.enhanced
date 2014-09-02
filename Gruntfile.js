@@ -129,8 +129,8 @@ module.exports = function(grunt) {
 		},
 
 		'gh-pages': {
-		    src: ['css/**/*.css', 'js/**/*.js', 'lib/**/*', 'plugin/**/*.js', 'index.html']
-		  }
+			src: ['css/**/*.css', 'js/**/*.js', 'lib/**/*', 'plugin/**/*.js', 'index.html']
+		}
 	});
 
 	// Dependencies
